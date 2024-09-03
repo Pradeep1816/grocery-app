@@ -1,0 +1,22 @@
+[
+  {
+    "path":"/",
+     "component":"Home",
+     "page":"My Home -My App"
+  },
+  {
+    "path":"/login",
+     "component":"Login",
+     "page":"My Login -My App"
+  },
+  {
+    "path":"/signup",
+     "component":"SignUp",
+     "page":"My SignUp -My App"
+  },
+  {
+    "path":"/cn/:name/:id",
+    "component":"CategoryPage",
+    "page":"My Category Page -My App"
+  }
+]
