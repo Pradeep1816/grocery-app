@@ -1,29 +1,12 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { generalActions } from "../../../store/reducer/generalSlice";
 
 function CartItem({ name, id, imageUrl, price, quantity, stock }) {
   const dispatch = useDispatch();
 
-  const onClickDecrease = () => {
-    // setCounter(counter - 1);
-    dispatch(generalActions.decCart(id));
-  };
-
-  const onClickIncrease = () => {
-    //setCounter(counter + 1);
-    dispatch(generalActions.incCart(id));
-  };
   return (
     <div className="relative bg-white rounded-lg flex items-center justify-between mx-3 px-1 my-2">
       {/* To show outofstock */}
-      {(stock == 0 || stock < quantity) && (
-        <div className="absolute w-full inset-0 bg-[#80808084] backdrop-blur-1 flex items-center justify-center rounded-xl z-10">
-          <span className="text-slate-100 text-sm font-semibold bg-[#0000008d] px-2 rounded-md">
-            Out of Stock
-          </span>
-        </div>
-      )}
       <div className="flex items-center gap-2">
         <div className="border flex justify-center rounded-lg bg-white w-[90px] flex-shrink-0">
           <img
@@ -37,7 +20,7 @@ function CartItem({ name, id, imageUrl, price, quantity, stock }) {
           <div>
             <p>{quantity}</p>
             <p className="font-bold mt-2 text-[11px]">
-              {(price * quantity) || "null"}
+              {price * quantity || "null"}
             </p>
           </div>
         </div>
@@ -52,7 +35,6 @@ function CartItem({ name, id, imageUrl, price, quantity, stock }) {
         </button>
       </div>
     </div>
-
   );
 }
 

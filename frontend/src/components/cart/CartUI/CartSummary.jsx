@@ -5,18 +5,10 @@ import { BsInfoCircle } from "react-icons/bs";
 import { GiScooter } from "react-icons/gi";
 import { GiShoppingBag } from "react-icons/gi";
 import { RiContactsBook3Fill } from "react-icons/ri";
-import DeliveryChargePopup from "../InfoPopup/DeliveryChargePopup";
-import HandleChargePopup from "../InfoPopup/HandleChargePopup";
-import {
-  handleChargeShow,
-  deliverChargeShow,
-} from "../../../store/reducer/cartSlice";
 import { useDispatch } from "react-redux";
 
 function CartSummary() {
-  const { tipsAmount, handleChargePopup, deliverChargePopup } = useSelector(
-    (state) => state.cartSlice
-  );
+  const { tipsAmount } = useSelector((state) => state.cartSlice);
 
   const dispatch = useDispatch();
 
@@ -93,8 +85,6 @@ function CartSummary() {
           </p>
         </div>
       </div>
-      {deliverChargePopup && <DeliveryChargePopup />}
-      {handleChargePopup && <HandleChargePopup />}
     </>
   );
 }
